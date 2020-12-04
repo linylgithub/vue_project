@@ -13,7 +13,7 @@
 <body>
     <div id="app">
         <ul>
-            <li v-for="(movie, index) in movies" :class="{active: currentindx==index}" @click="changeIndex(index)">{{index}}-{{movie}}</li>
+            <li v-for="(movie, index) in movies" :class="{active: currentindx===index}" @click="changeIndex(index)">{{index}}-{{movie}}</li>
         </ul>
     </div>
     <script src="../js/vue.js"></script>
