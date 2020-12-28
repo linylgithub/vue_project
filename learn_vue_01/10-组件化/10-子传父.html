@@ -1,50 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>父子组件的通信</title>
 </head>
+
 <body>
+  <!-- 父组件模板 -->
   <div id="app">
-    <cpn  :cmessage="message" :cmovies="movies"></cpn>
+    <cpn @item-click="cpnClick"></cpn>
   </div>
+
+  <!-- 子组件模板 -->
   <template id="cpn">
     <div>
+      <button v-for="item in categories" 
+        @click="btnClick(item)">
+        {{item.name}}
+      </button>
     </div>
   </template>
   <script src="../js/vue.js"></script>
   <script>
     const cpn = {
       template: '#cpn',
-      props: {
-        cmessage: {
-          type: String,
-          default: 'uuuuuuuuuuuuu',
-          required: true
-        },
-        // 类型是对象或者数组时，默认值必须是函数
-        cmovies: {
-          type: Array,
-          default() {
-            return []
-          }
+      data() {
+        return {
+          categories: [
+            { id: 'aaa', name: '热门推荐' },
+            { id: 'bbb', name: '手机数码' },
+            { id: 'ccc', name: '家用电器' },
+            { id: 'ddd', name: '电脑办公' }
+          ],
         }
       },
-      data() {
-        return {}
+      methods: {
+        btnClick(item) {
+          // console.log(item);
+          this.$emit('item-click', item)
+        }
       },
     }
     const vue = new Vue({
       "el": '#app',
       data: {
         message: 'ddd',
-        movies: ['滚滚滚', 'ddd', 'dde', 'device', 'dddxxx']
       },
       components: {
         cpn
-      }
+      },
+      methods: {
+        cpnClick(item) {
+          console.log(item);
+        }
+      },
     })
   </script>
 </body>
+
 </html>
