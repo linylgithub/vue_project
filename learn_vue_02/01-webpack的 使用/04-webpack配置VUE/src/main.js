@@ -1,10 +1,10 @@
-const {add, mul} = require('./js/mathUtils.js')
+const { add, mul } = require('./js/mathUtils.js')
 
 
 console.log(add(20, 30));
 console.log(mul(20, 30));
 
-import {name, age, height} from './js/info';
+import { name, age, height } from './js/info';
 
 console.log(name);
 console.log(age);
@@ -43,10 +43,12 @@ document.writeln('<h2>你好啊，VUE</h2>')
 
 // 使用vue进行开发
 import Vue from 'vue'
+import App from './vue/App.vue'
 
-const app = new Vue({
+new Vue({
   el: "#app",
-  data: {
-    message: '你好啊'
+  template: '<App/>',
+  components: {
+    App
   }
 })
