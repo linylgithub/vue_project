@@ -43,6 +43,11 @@ document.writeln('<h2>你好啊，VUE</h2>')
 
 //npm install vue-loader@15.4.2 vue-template-compiler@2.5.21 --save-dev
 
+// npm install html-webpack-plugin@3.2.0 --save--dev
+
+// npm install uglifyjs-webpack-plugin@1.1.1 --save-dev
+
+
 
 // 使用vue进行开发
 import Vue from 'vue'
