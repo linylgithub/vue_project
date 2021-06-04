@@ -6,5 +6,11 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  render: h => h(App)
+  // render: h => h(App),
+  render: function(h) {
+    return h(App)
+  }
 })
+// 那么.vue文件中的template是由谁处理的呢？
+// 是由vue-template-complier
+// render -> vdom -> UI
